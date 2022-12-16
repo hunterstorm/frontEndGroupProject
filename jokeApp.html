@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
@@ -17,20 +17,20 @@
                 justify-content:center;
                 row-gap:33px;
             }
-            .jokeDiv {
+            .progammingJokeDiv {
                 display:flex;
                 align-self:center;
                 flex-direction: column;
                 justify-content:center;
                 row-gap:20px;
             }
-            .jokeBtn{
+            .progammingJokeBtn{
 
                 padding: 12px 18px;
                 margin-top:50px;
                 
             }
-            .jokeBtn:hover{
+            .progammingJokeBtn:hover{
                 cursor:pointer;
                 background-color: black;
                 color:aliceblue;
@@ -54,7 +54,7 @@
         </style>
         <script>
             
-            function getJokeApi(){
+            function getProgrammingJokeApi(){
                 fetch ("https://backend-omega-seven.vercel.app/api/getjoke")
                 .then((r) => r.json())
                 .then((response) => {
@@ -64,26 +64,26 @@
             }
 
             function showData(jsonFormatResponse){
-                const jokeDiv= document.getElementById("jokeDiv");
+                const progammingJokeDiv= document.getElementById("progammingJokeDiv");
                 const punchlineBtn= document.createElement("button");
                     punchlineBtn.className="punchlineBtn";
 
-                    jokeDiv.innerText= jsonFormatResponse[(0)].question; 
+                    progammingJokeDiv.innerText= jsonFormatResponse[(0)].question; 
                     punchlineBtn.innerText="answer"
                     punchlineBtn.addEventListener ('click',()=>{
-                        jokeDiv.innerText=jsonFormatResponse[(0)].punchline;
+                        progammingJokeDiv.innerText=jsonFormatResponse[(0)].punchline;
                         punchlineBtn.remove();
                     })
-                    jokeDiv.append(punchlineBtn);
+                    progammingJokeDiv.append(punchlineBtn);
                 }
 
         </script>
     </head>
     <body>
         <div id="parentDiv" class="parentDiv">
-            <div id="jokeDiv" class ="jokeDiv">
+            <div id="progammingJokeDiv" class ="progammingJokeDiv">
             </div>
-            <button id="jokeBtn" class="jokeBtn" onclick="getJokeApi()">New Joke</button>
+            <button id="progammingJokeBtn" class="progammingJokeBtn" onclick="getProgrammingJokeApi()">New Joke</button>
             
         </div>
     </body>
