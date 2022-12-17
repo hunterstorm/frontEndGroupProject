@@ -1,6 +1,41 @@
 
 
 * {
-    background-color: #5B7B7A;
-    color: #E0F2E9;
+    font-family: 'Source Code Pro', monospace;
+          font-size:110%;
+          text-align:center;
+          background-color: #e0f2e9;
+          color: #5b7c7a;
+}
+    
+.container{
+    display:flex;
+    flex-direction:column;
+    max-width:75%;
+    justify-content:center;
+    row-gap:5px;
+    margin: auto;
+    width:50%;
+    position: absolute center;
+    padding-bottom: 20%;
+
+}
+
+.marquee {
+    border: 6px dashed #ceb5a7;
+    ;
+}
+
+.hello {
+    color: #3c887e ;
+}
+
+.Sit {
+    border: dotted 4px #ceb5a7;
+    ;
+}
+
+.weWelcome {
+    color: #a17c6b ;
+ 
 }
