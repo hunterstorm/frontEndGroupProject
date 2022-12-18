@@ -1,3 +1,6 @@
+*{
+    background-color: white ;
+}
 body {
     font-family:Arial, Helvetica, sans-serif;
     text-align: center;
@@ -38,7 +41,7 @@ hr{
 }
 
 .winner{
-    background-color: lightgray;
-    color: red
+    background-color: lightgreen;
+    color: green
 
 }
