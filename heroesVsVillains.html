@@ -4,305 +4,48 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>PS | Heroes VS Villains</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comfortaa:wght@700&family=Source+Code+Pro&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comfortaa:wght@700&family=Luckiest+Guy&family=Source+Code+Pro&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-        <style> 
-            @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Comfortaa:wght@700&family=Source+Code+Pro&display=swap');
-
-            *{
-                font-family:'Bangers' , cursive;
-                font-size:150%;
-                transition-duration:0.5s;
-            }
-            button{
-                border-radius: 10px;
-                font-size:56px;
-                margin-bottom:5%;
-                padding: 12px 36px;
-                font-size:200%;
-            }
-            button:hover{                
-                cursor:pointer;
-                background-color: black;
-                color:aliceblue;
-                transition-duration: 0.4s;
-
-            }
-
-            .parentDiv{
-                display:flex;
-                flex-direction: column;
-                justify-content:space-around;
-                align-items:center;
-                row-gap:25px;
-
-            }
-            .title{
-                margin-top:5%;
-                margin-bottom:31%;
-                font-size:300%;
-            } 
-            .battleGround{
-                display:flex;
-                flex-direction:row;
-                column-gap:25%;
-                justify-content:space-evenly;
-                min-height:0px;   
-                
-            }
-             .heroDiv{
-                display:flex;
-                flex-direction:column;
-                font-size:150%;
-                text-align:center;
-                row-gap:20px;
-            }
-            .villainDiv{
-                display:flex;
-                flex-direction:column;
-                font-size:150%;
-                text-align:center;
-                row-gap:20px;
-            }
-            .battleBtn{
-                padding: 12px 36px;
-                font-size:200%;
-            }
-            .matchupBtn{
-                padding: 12px 36px;
-                font-size: 90%;
-            }
-            .versusDiv{
-                display:flex;
-                flex-direction:column;
-                margin-top:20%;
-                
-            }
-            .versus{
-            border:none;
-            border-radius:50%;
-            background-color:crimson;
-            color:white;
-            height:80%;
-            font-size:250%;
-            }
-            .versus:hover{
-            background-color:black;
-            }
-            
-
-            .battleAnalysis{
-                display:flex;
-                flex-direction:column;
-                align-items:center;
-                font-size:110%;
-                height:100%;
-                
-            }
-            .matchupData{
-                display:flex;
-                flex-direction:row;
-                column-gap: 470px;
-
-            }
-            .heroStatsDiv{
-                display:flex;
-                flex-direction: column;
-                justify-content:flex-start;
-                
-            }
-            .villainStatsDiv{
-                display:flex;
-                flex-direction:column;
-                justify-content:flex-end;
-                
-            }
-            .statDescriptionDiv{
-                display:flex;
-                margin:auto;
-                justify-content:center;
-                text-align:center;
-                
-            }
-            .matchupTitle{
-                margin-top:5%;
-                margin-bottom:5%;
-                display:flex;
-                order:-1;
-                font-size:300%;
-                justify-content: center;
-                text-align:center;
-                
-            
-            }
-        </style>
-        <script>
-            window.smoothScroll = function(target) {
-            var scrollContainer = target;
-            do { //find scroll container
-                scrollContainer = scrollContainer.parentNode;
-                if (!scrollContainer) return;
-                scrollContainer.scrollTop += 1;
-            } while (scrollContainer.scrollTop == 0);
-        
-            var targetY = 0;
-            do { //find the top of target relatively to the container
-                if (target == scrollContainer) break;
-                targetY += target.offsetTop;
-            } while (target = target.offsetParent);
-        
-            scroll = function(c, a, b, i) {
-                i++; if (i > 30) return;
-                c.scrollTop = a + (b - a) / 30 * i;
-                setTimeout(function(){ scroll(c, a, b, i); }, 1);
-            }
-            // start scrolling
-            scroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);
-        }
-        function heroVsVillainCall(){
-            smoothScroll(document.getElementById("battleGround"));
-            fetch('https://akabab.github.io/superhero-api/api/all.json')
-                .then((r) => r.json())
-                .then((response) => {
-                showData(response)
-                console.log(response)
-                }).catch(err => console.error(err));
-        }            
-        function removeDiv(){
-                    
-            let heroDiv= document.getElementById("heroDiv");
-            let villainDiv= document.getElementById("villainDiv");
-            let versusDiv= document.getElementById("versusDiv"); 
-            let heroStatsDiv= document.getElementById("heroStatsDiv");
-            let villainStatsDiv= document.getElementById("villainStatsDiv");
-            let statDescriptionDiv=document.getElementById("statDescriptionDiv");  
-            heroDiv.innerHTML="";
-            heroStatsDiv.innerHTML="";
-            villainStatsDiv.innerHTML="";
-            villainDiv.innerHTML="";
-            versusDiv.innerText="";
-            statDescriptionDiv.innerHTML="";
-        }
-        function getWinner (a,b){
-            const winnerDiv=document.getElementById("winnerDiv");
-            const battleBtn=document.getElementById("battleBtn");
-            if (a >= b){
-                winnerDiv.innerHTML="heroes win! "+"\r\n"+a+" to "+b
-
-            }else if (a<=b){
-                winnerDiv.innerHTML="villains win! "+b+" to "+a
-
-            }else if (a==b){
-                winnerDiv.innerHTML="it was a tie! "+a+ " to "+b
-            }
-            battleBtn.addEventListener('click',()=>{
-                winnerDiv.innerHTML="";
-            })
-        }
-        function showData(jsonFormatResponse){
-
-            removeDiv();
-            const versus= document.createElement("button");
-            const versusDiv= document.getElementById("versusDiv");
-            const heroDiv=document.getElementById("heroDiv");
-            const villainDiv=document.getElementById("villainDiv");
-            const battleBtn= document.getElementById("battleBtn");
-            const battleAnalysis= document.getElementById("battleAnalysis");                    
-            const battleGround= document.getElementById("battleGround");
-                 
-            versus.className="versus";
-            versus.id="versus";
-            versus.innerText="VS";
-                
-            versusDiv.append(versus);
-
-            let heroesContainer = [];
-            let villainsContainer = [];
-            for(let i in jsonFormatResponse){
-                let characterId= jsonFormatResponse[i].biography;
-                if (characterId.alignment=="good"){
-                    heroesContainer.push(jsonFormatResponse[i]);
-                }else if(characterId.alignment=="bad"){
-                    villainsContainer.push(jsonFormatResponse[i]);
-                }
-            }
-                    
-            let heroGenerator= Math.floor(Math.random()*heroesContainer.length);
-            let villainGenerator=Math.floor(Math.random()*villainsContainer.length);
-            const heroName=heroesContainer[heroGenerator].name;
-            const villainName=villainsContainer[villainGenerator].name;
-            if(heroName.length>=15){
-                heroDiv.style.cssText="font-size:110%";
-                heroDiv.innerHTML=heroName;
-            }
-            else{
-                heroDiv.innerHTML=heroName;
-            }
-            if (villainName.length>=15){
-                villainDiv.style.cssText="font-size:110%";
-                villainDiv.innerHTML=villainName;
-            }else{
-                villainDiv.innerHTML= villainName;
-            }
-            const heroPic=document.createElement("img");
-            const villainPic=document.createElement("img");
-
-            let heroPicIndex=heroesContainer[heroGenerator].images;
-            let villainPicIndex=villainsContainer[villainGenerator].images;
-                    
-            heroPic.id="heroPic";
-            heroPic.className="heroPic";
-            villainPic.id="villainPic";
-            villainPic.className="villainPic";
-
-            heroPic.src=heroPicIndex.lg;
-            villainPic.src=villainPicIndex.lg;
-
-            heroDiv.append(heroPic);
-            villainDiv.append(villainPic);
-
-            versus.onclick = function() {
-                smoothScroll(document.getElementById('matchupData'));
-                this.disabled = true;
-                    const heroStatsDiv= document.getElementById("heroStatsDiv");
-                    const villainStatsDiv= document.getElementById("villainStatsDiv");
-                    const heroAnalysis= heroesContainer[heroGenerator].powerstats
-                    const villainAnalysis= villainsContainer[villainGenerator].powerstats
-                    const winnerDiv= document.getElementById("winnerDiv");
-                    
-                    console.log (heroAnalysis)
-                    let h1=document.createElement("H1");
-                    h1.innerText=heroesContainer[heroGenerator].name+" vs "+villainsContainer[villainGenerator].name;
-                    h1.id="matchupTitle";
-                    h1.className="matchupTitle"
-                    const winnerBtn=document.createElement("button");
-                    winnerBtn.innerText="view results";
-                    battleAnalysis.append(winnerBtn);
-                    battleAnalysis.append(h1);
-                    statDescriptionDiv.innerText="intelligence"+"\r\n"+"Strength"+"\r\n"+"Speed"+"\r\n"+"Durability"+"\r\n"+"Power"+"\r\n"+"Combat";
-                    battleBtn.addEventListener('click',()=>{
-                        h1.innerHTML="";
-                         winnerBtn.remove(battleAnalysis);
-                    })
-                    let heroSum=0;
-                    let villainSum=0;
-                    for (let j in heroAnalysis){
-                        heroStatsDiv.innerText+=heroAnalysis[j]+"\r\n";
-                        villainStatsDiv.innerText+=villainAnalysis[j]+"\r\n";
-                        heroSum+=heroAnalysis[j];
-                        villainSum+=villainAnalysis[j];  
-                    }
-                    winnerBtn.addEventListener('click',()=>{
-                        getWinner(heroSum,villainSum);
-                        smoothScroll(document.getElementById('winnerDiv'));
-                    })
-                }
-            }     
-            
-        </script>
+        <script src="heroesVsVillains.js"></script>
+        <link rel="stylesheet" href="heroesVsVillains.css">
     </head>
     <body>
+        <div class="navbar">
+            <nav class="navbar navbar-expand-lg bg-light">
+                <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="homepage.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="jokespage.html">Jokes</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Games 
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Heroes Vs. Villains</a></li>
+                        <li><a class="dropdown-item" href="tictactoe.html">Tic-Tac-Toe</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        
+                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="AboutUs.html">About Us</a>
+                    </li>
+                    
+                </div>
+            </div>
+            </nav>
+        </div>
         <div id="parentDiv" class="parentDiv">
             <h1 class="title">Heroes VS Villains</h1>
             <button id="battleBtn" class="battleBtn" onclick="heroVsVillainCall()">START A FIGHT!</button>
