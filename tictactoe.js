@@ -88,7 +88,9 @@ function checkWinner(){
             }
                 gameOver=true;
                     return;
+            }
         }
+
          //diagonally
          if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != ' ') {
             for (let i = 0; i < 3; i++) {
@@ -100,7 +102,7 @@ function checkWinner(){
     
             }
     
-    }
+    
     //anti-diagonally
     if (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] != ' ') {
         //0-2
@@ -134,6 +136,3 @@ function checkWinner(){
 //      }
 //     gameOver=true;
 //     return;
-
-
-
