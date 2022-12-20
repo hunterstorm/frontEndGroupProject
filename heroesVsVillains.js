@@ -49,12 +49,15 @@ function getWinner (a,b){
     const battleBtn=document.getElementById("battleBtn");
     if (a >= b){
         winnerDiv.innerHTML="heroes win! "+"\r\n"+a+" to "+b
+        return "hero"
 
     }else if (a<=b){
         winnerDiv.innerHTML="villains win! "+b+" to "+a
+        return "villain"
 
     }else if (a==b){
         winnerDiv.innerHTML="it was a tie! "+a+ " to "+b
+        return "tie"
     }
     battleBtn.addEventListener('click',()=>{
         winnerDiv.innerHTML="";
@@ -146,6 +149,7 @@ function showData(jsonFormatResponse){
             battleBtn.addEventListener('click',()=>{
                 h1.innerHTML="";
                  winnerBtn.remove(battleAnalysis);
+                 winnerDiv.innerHTML='';
             })
             let heroSum=0;
             let villainSum=0;
@@ -157,7 +161,17 @@ function showData(jsonFormatResponse){
             }
             winnerBtn.addEventListener('click',()=>{
                 getWinner(heroSum,villainSum);
+                
                 smoothScroll(document.getElementById('winnerDiv'));
+                // if (getWinner()=="hero"){
+                //     winnerDiv.append(heroPic);
+                // }if (getWinner()=="villain"){
+                //     winnerDiv.append(villainPic);
+                // }else{
+                //     winnerDiv.append(heroPic);
+                //     winnerDiv.append(villainPic);
+                // }
+                
             })
         }
     }     
