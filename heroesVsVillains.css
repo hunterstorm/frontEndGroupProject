@@ -11,6 +11,8 @@
     
         border: dotted 5px #a17c6b ;
         max-width: 50%;
+        padding-left:15px;
+        padding-right:15px;
         align-self: center;
         justify-content:center;
         text-align: center;
@@ -27,7 +29,7 @@ button{
 }
 button:hover{                
     cursor:pointer;
-    background-color: black;
+    background-color: #a17c6b;
     color:aliceblue;
     transition-duration: 0.4s;
 
@@ -53,7 +55,7 @@ button:hover{
     flex-direction:row;
     column-gap:25%;
     justify-content:space-evenly;
-    min-height:0px;   
+    min-height:0px;
     
 }
  .heroDiv{
@@ -87,13 +89,13 @@ button:hover{
 .versus{
 border:none;
 border-radius:50%;
-background-color:crimson;
-color:white;
-height:80%;
+background-color:none;
+color:#a17c6b;
+height:40%;
 font-size:250%;
 }
 .versus:hover{
-background-color:black;
+background-color:#a17c6b
 }
 
 
@@ -108,7 +110,7 @@ background-color:black;
 .matchupData{
     display:flex;
     flex-direction:row;
-    column-gap: 470px;
+    padding-bottom:30px;
 
 }
 .heroStatsDiv{
@@ -143,4 +145,11 @@ background-color:black;
 }
 .winnerBtn{
     padding: 12px 24px;
+}
+.winnerDiv{
+    display:flex;
+    flex-direction:column;
+    text-align:center;
+    row-gap: 20px;
+    padding-bottom: 5%;
 }

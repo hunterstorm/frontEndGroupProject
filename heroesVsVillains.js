@@ -119,8 +119,8 @@ function showData(jsonFormatResponse){
     villainPic.id="villainPic";
     villainPic.className="villainPic";
 
-    heroPic.src=heroPicIndex.lg;
-    villainPic.src=villainPicIndex.lg;
+    heroPic.src=heroPicIndex.md;
+    villainPic.src=villainPicIndex.md;
 
     heroDiv.append(heroPic);
     villainDiv.append(villainPic);
@@ -147,7 +147,7 @@ function showData(jsonFormatResponse){
             battleAnalysis.append(h1);
             statDescriptionDiv.innerText="intelligence"+"\r\n"+"Strength"+"\r\n"+"Speed"+"\r\n"+"Durability"+"\r\n"+"Power"+"\r\n"+"Combat";
             battleBtn.addEventListener('click',()=>{
-                h1.innerHTML="";
+                h1.remove(battleAnalysis);
                  winnerBtn.remove(battleAnalysis);
                  winnerDiv.innerHTML='';
             })
@@ -160,7 +160,13 @@ function showData(jsonFormatResponse){
                 villainSum+=villainAnalysis[j];  
             }
             winnerBtn.addEventListener('click',()=>{
-                getWinner(heroSum,villainSum);
+                if(getWinner(heroSum,villainSum)=="hero"){
+                    winnerDiv.append(heroPic.cloneNode(true));
+                }else if(getWinner(heroSum,villainSum)=="villain"){
+                    
+                    winnerDiv.append(villainPic.cloneNode(true));
+                };
+
                 
                 smoothScroll(document.getElementById('winnerDiv'));
                 // if (getWinner()=="hero"){
