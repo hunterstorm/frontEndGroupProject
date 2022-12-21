@@ -44,15 +44,15 @@ function removeDiv(){
     versusDiv.innerText="";
     statDescriptionDiv.innerHTML="";
 }
-function getWinner (a,b){
+function getWinner (a,b,hero,villain){
     const winnerDiv=document.getElementById("winnerDiv");
     const battleBtn=document.getElementById("battleBtn");
     if (a >= b){
-        winnerDiv.innerHTML="heroes win! "+"\r\n"+a+" to "+b
+        winnerDiv.innerHTML=hero +" wins "+"\r\n"+a+" to "+b+"!";
         return "hero"
 
     }else if (a<=b){
-        winnerDiv.innerHTML="villains win! "+b+" to "+a
+        winnerDiv.innerHTML=villain +" wins "+b+" to "+a +"!";
         return "villain"
 
     }else if (a==b){
@@ -130,12 +130,11 @@ function showData(jsonFormatResponse){
         this.disabled = true;
             const heroStatsDiv= document.getElementById("heroStatsDiv");
             const villainStatsDiv= document.getElementById("villainStatsDiv");
+            const statDescriptionDiv=document.getElementById("statDescriptionDiv");
             const heroAnalysis= heroesContainer[heroGenerator].powerstats
             const villainAnalysis= villainsContainer[villainGenerator].powerstats
             const winnerDiv= document.getElementById("winnerDiv");
 
-            
-            console.log (heroAnalysis)
             let h1=document.createElement("H1");
             h1.innerText=heroesContainer[heroGenerator].name+" vs "+villainsContainer[villainGenerator].name;
             h1.id="matchupTitle";
@@ -145,7 +144,7 @@ function showData(jsonFormatResponse){
             winnerBtn.innerText="view results";
             battleAnalysis.append(winnerBtn);
             battleAnalysis.append(h1);
-            statDescriptionDiv.innerText="intelligence"+"\r\n"+"Strength"+"\r\n"+"Speed"+"\r\n"+"Durability"+"\r\n"+"Power"+"\r\n"+"Combat";
+            statDescriptionDiv.innerText="intelligence"+"\r\n"+"Strength"+"\r\n"+"Speed"+"\r\n"+"Durability"+"\r\n"+"Power"+"\r\n"+"Combat"+"\r\n";
             battleBtn.addEventListener('click',()=>{
                 h1.remove(battleAnalysis);
                  winnerBtn.remove(battleAnalysis);
@@ -160,23 +159,22 @@ function showData(jsonFormatResponse){
                 villainSum+=villainAnalysis[j];  
             }
             winnerBtn.addEventListener('click',()=>{
-                if(getWinner(heroSum,villainSum)=="hero"){
+                if(getWinner(heroSum,villainSum,heroName,villainName)=="hero"){
                     winnerDiv.append(heroPic.cloneNode(true));
-                }else if(getWinner(heroSum,villainSum)=="villain"){
+                }else if(getWinner(heroSum,villainSum,heroName,villainName)=="villain"){
                     
                     winnerDiv.append(villainPic.cloneNode(true));
                 };
-
-                
                 smoothScroll(document.getElementById('winnerDiv'));
-                // if (getWinner()=="hero"){
-                //     winnerDiv.append(heroPic);
-                // }if (getWinner()=="villain"){
-                //     winnerDiv.append(villainPic);
-                // }else{
-                //     winnerDiv.append(heroPic);
-                //     winnerDiv.append(villainPic);
-                // }
+                let scrollBtn=document.createElement("button");
+                scrollBtn.innerText="Play Again!";
+                scrollBtn.addEventListener("click", () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    })
+                })
+                winnerDiv.append(scrollBtn);
                 
             })
         }
