@@ -4,14 +4,13 @@
     font-family: 'luckiest guy' , cursive;
     font-size:110%;
     text-align:center;
-    background-color: #e0f2e9;
+    background-color: #e0f2e9 !important;
     color: #5b7c7a;
 }
 
 body {
     font-family:Arial, Helvetica, sans-serif;
     text-align: center;
-    background-color: #e0f2e9;
 }
 .ticGame{
     text-align: center;    
@@ -68,3 +67,4 @@ button:hover{
           color:aliceblue;
           transition-duration: 0.4s;
 }
+
