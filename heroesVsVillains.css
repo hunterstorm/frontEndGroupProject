@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Comfortaa:wght@700&family=Luckiest+Guy&family=Source+Code+Pro&display=swap');
+
+*{
+    
+    font-size:150%;
+    transition-duration:0.5s;
+}
+
+
+
+button{
+    border-radius: 10px;
+    font-size:56px;
+    margin-bottom:12%;
+    padding: 12px 36px;
+    font-size:200%;
+}
+button:hover{                
+    cursor:pointer;
+    background-color: black;
+    color:aliceblue;
+    transition-duration: 0.4s;
+
+}
+.navbar{
+    font-size:5px;
+    font-family: 'luckiest guy' , cursive;
+}
+
+.parentDiv{
+    font-family:'Bangers' , cursive;
+    display:flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items:center;
+    row-gap:25px;
+
+}
+.title{
+    margin-bottom:30%;
+    font-size:300%;
+} 
+.battleGround{
+    display:flex;
+    flex-direction:row;
+    column-gap:25%;
+    justify-content:space-evenly;
+    min-height:0px;   
+    
+}
+ .heroDiv{
+    display:flex;
+    flex-direction:column;
+    font-size:150%;
+    text-align:center;
+    row-gap:20px;
+}
+.villainDiv{
+    display:flex;
+    flex-direction:column;
+    font-size:150%;
+    text-align:center;
+    row-gap:20px;
+}
+.battleBtn{
+    padding: 12px 36px;
+    font-size:200%;
+}
+.matchupBtn{
+    padding: 12px 36px;
+    font-size: 90%;
+}
+.versusDiv{
+    display:flex;
+    flex-direction:column;
+    margin-top:20%;
+    
+}
+.versus{
+border:none;
+border-radius:50%;
+background-color:crimson;
+color:white;
+height:80%;
+font-size:250%;
+}
+.versus:hover{
+background-color:black;
+}
+
+
+.battleAnalysis{
+    display:flex;
+    flex-direction:column;
+    align-items:space-around;
+    font-size:110%;
+    height:100%;
+    
+}
+.matchupData{
+    display:flex;
+    flex-direction:row;
+    column-gap: 470px;
+
+}
+.heroStatsDiv{
+    display:flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    
+}
+.villainStatsDiv{
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    
+}
+.statDescriptionDiv{
+    display:flex;
+    margin:auto;
+    justify-content:center;
+    text-align:center;
+    
+}
+.matchupTitle{
+    margin-top:5%;
+    margin-bottom:5%;
+    display:flex;
+    order:-1;
+    font-size:300%;
+    justify-content: center;
+    text-align:center;
+    
+
+}
+.winnerBtn{
+    padding: 12px 24px;
+}
