@@ -7,11 +7,7 @@
           background-color:#e0f2e9;
           color: #5b7c7a;
       }
-      body{
-        display:flex;
-        flex-direction: row;
-
-      }
+   
       .parentDiv {
           display:flex;
           flex-direction:column;
