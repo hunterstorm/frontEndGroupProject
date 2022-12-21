@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Comfortaa:wght@700&family=Luckiest+Guy&family=Source+Code+Pro&display=swap');
+
+
 *{
-    font-family: 'Source Code Pro', monospace;
-    font-size:110%;
+  font-family: 'luckiest guy' , cursive;
+      font-size:110%;
     text-align:center;
     background-color: #e0f2e9;
     color: #5b7c7a;

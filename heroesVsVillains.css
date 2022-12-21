@@ -1,12 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Comfortaa:wght@700&family=Luckiest+Guy&family=Source+Code+Pro&display=swap');
 
 *{
-    
-    font-size:150%;
-    transition-duration:0.5s;
+    font-family: 'luckiest guy' , cursive;
+    background-color: #e0f2e9;
+    color: #5b7c7a;
+    font-size:110%;
 }
 
-
+.heroesTitle{
+    
+        border: dotted 5px #a17c6b ;
+        max-width: 50%;
+        align-self: center;
+        justify-content:center;
+        text-align: center;
+}
 
 button{
     border-radius: 10px;
@@ -14,6 +22,8 @@ button{
     margin-bottom:12%;
     padding: 12px 36px;
     font-size:200%;
+    border: dashed 5px #ceb5a7 ;
+
 }
 button:hover{                
     cursor:pointer;
@@ -23,12 +33,10 @@ button:hover{
 
 }
 .navbar{
-    font-size:5px;
     font-family: 'luckiest guy' , cursive;
 }
 
 .parentDiv{
-    font-family:'Bangers' , cursive;
     display:flex;
     flex-direction: column;
     justify-content:space-around;
@@ -37,7 +45,7 @@ button:hover{
 
 }
 .title{
-    margin-bottom:30%;
+    /* margin-bottom:30%; */
     font-size:300%;
 } 
 .battleGround{

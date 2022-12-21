@@ -1,39 +1,61 @@
- @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Source+Code+Pro&display=swap');
-      
-    *{
-          font-family: 'Source Code Pro', monospace;
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Comfortaa:wght@700&family=Luckiest+Guy&family=Source+Code+Pro&display=swap');
+
+
+*{
+  font-family: 'luckiest guy' , cursive;
           font-size:110%;
           text-align:center;
           background-color:#e0f2e9;
           color: #5b7c7a;
       }
+   body {
+    background-color: #e0f2e9;
+   }
    
       .parentDiv {
           display:flex;
           flex-direction:column;
           max-width:50%;
           justify-content:center;
-          row-gap:5px;
+          row-gap:30px;
           margin: auto;
-          width:50%;
+
+
         }
+        .topSection{
+            border: dotted 5px #a17c6b ;
+            align-self: center;
+            justify-content:center;
+            margin: auto;
+            row-gap:30px;
+
+        
+        
+        
+           }
       .jokeDiv {
           display:flex;
           align-self:center;
           flex-direction: column;
           justify-content:center;
-          row-gap:20px;
+          row-gap:30px;
       }
       .jokeBtn{
 
           padding: 12px 18px;
           border-radius:10px;
+          width:25%;
+          justify-content:center;
+          align-self:center;
+          border: dashed 5px #ceb5a7 ;
+
+
           /* margin-top:50px; */
           
       }
       .jokeBtn:hover{
           cursor:pointer;
-          background-color: black;
+          background-color: #a17c6b;
           color:aliceblue;
           transition-duration: 0.4s;
           
