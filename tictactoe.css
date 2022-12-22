@@ -16,7 +16,7 @@ body {
     text-align: center;    
 }
 
-.board{
+#board{
     width:450px;
     height:450px;
     margin:0 auto;
@@ -37,6 +37,12 @@ body {
 
 }
 
+.winner{
+    background-color: yellow;
+    color: green
+
+}
+
 .horizontal-line{
     border-bottom: 3px solid black;
 
@@ -46,11 +52,7 @@ body {
     border-right: 3px solid black;
 }
 
-.winner{
-    background-color: yellow;
-    color: green
 
-}
 
 .refreshContainer{
     background-color: #e0f2e9;
