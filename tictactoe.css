@@ -67,4 +67,8 @@ button:hover{
           color:aliceblue;
           transition-duration: 0.4s;
 }
+.ticHeader{
+    border: dottedls 5px #ceb5a7 ;
+
+}
 

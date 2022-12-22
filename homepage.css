@@ -40,3 +40,10 @@
     color: #a17c6b ;
  
 }
+
+button:hover{                
+    cursor:pointer;
+        background-color: #a17c6b;
+        color:aliceblue;
+        transition-duration: 0.4s;
+}
